@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+##
+
+Using alphavantage.co for market data. Key = 4UL18G30I6HH4G3C
+
+Fundamental data using:
+https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
+
+IPO Calendar using:
+https://www.alphavantage.co/query?function=IPO_CALENDAR&apikey=demo
+
+Earnings Calendar using:
+https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=demo
+
