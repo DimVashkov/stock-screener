@@ -1,1 +1,18 @@
-<p>stock-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Tickers</span>
+        </div>
+        <input #stockInput type="text" class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default">
+          <input (click)="addStockTicker(stockInput.value)" class="btn btn-success" type="button" value="Add">
+      </div>
+      <ul class="list-group text-center">
+        <li *ngFor="let stock of stocks" class="list-group-item">{{stock}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
