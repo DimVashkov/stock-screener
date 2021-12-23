@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Stock } from 'src/app/shared/interfaces/stock';
 import { ApiService} from '../../../../core/http/api.service';
 
 @Component({
@@ -8,17 +9,17 @@ import { ApiService} from '../../../../core/http/api.service';
 })
 export class StockListComponent implements OnInit {
   @ViewChild('stockInput') stockInput: ElementRef | undefined;
-  stocks: string[] = ['AAPL', 'TSLA', 'MSFT', 'NVDA', 'IBM'];
+  stockTickers: string[] = ['AAPL', 'TSLA', 'MSFT', 'NVDA', 'IBM'];
 
-  @Output() stockSelectedEvent = new EventEmitter<string>();
+  @Output() stockSelectedEvent = new EventEmitter<Stock>();
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
   }
   addStockTicker(ticker: string) {
     ticker = ticker.toUpperCase();
-    if (ticker != '' && !this.stocks.includes(ticker)) {
-      this.stocks.push(ticker);
+    if (ticker != '' && !this.stockTickers.includes(ticker)) {
+      this.stockTickers.push(ticker);
       this.clearStockInput();
     }
   }
@@ -29,10 +30,15 @@ export class StockListComponent implements OnInit {
     }
   }
 
-  sendSelectedStock(stock: string) {
-    console.log('sending stock');
-    const stockData = this.api.getStockTickerData(stock);
-    console.log(stockData);
-    this.stockSelectedEvent.emit(stockData);
+  sendSelectedStock(stockTicker: string) {
+    this.api.getStockTickerData(stockTicker).subscribe(stock => {
+      console.log('Emit stock', stock);
+      this.stockSelectedEvent.emit(stock);
+    })
   }
+
+  // getStockData() {
+  //   console.log("Started");
+  //   this.stocksFullData = this.api.getStockData(this.stockTickers);
+  // }
 }
