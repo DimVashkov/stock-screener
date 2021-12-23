@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { ApiService} from '../../../../core/http/api.service';
 
 @Component({
   selector: 'app-stock-list',
@@ -10,7 +11,7 @@ export class StockListComponent implements OnInit {
   stocks: string[] = ['AAPL', 'TSLA', 'MSFT', 'NVDA', 'IBM'];
 
   @Output() stockSelectedEvent = new EventEmitter<string>();
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,8 @@ export class StockListComponent implements OnInit {
 
   sendSelectedStock(stock: string) {
     console.log('sending stock');
-    this.stockSelectedEvent.emit(stock);
+    const stockData = this.api.getStockTickerData(stock);
+    console.log(stockData);
+    this.stockSelectedEvent.emit(stockData);
   }
 }

@@ -1,22 +1,22 @@
 <div *ngIf="stock" class="container flex-grow-1 vw-100 p-2">
   <div class="row">
     <div class="col">
-      <h3>Symbol: {{ stock }} </h3>
+      <h3>Symbol: {{ stock.Symbol }} </h3>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <p><strong>Asset Type:</strong> Common Stock</p>
-      <p><strong>Name: </strong>"International Business Machines Corporation"</p>
-      <p><strong>Exchange: </strong>NYSE</p>
-      <p><strong>Country: </strong>"USA"</p>
-      <p><strong>Sector: </strong>"TECHNOLOGY"</p>
-      <p><strong>Industry: </strong>"COMPUTER & OFFICE EQUIPMENT"</p>
+      <p><strong>Asset Type:</strong> {{stock.AssetType}}</p>
+      <p><strong>Name: </strong>{{stock.Name}}</p>
+      <p><strong>Exchange: </strong>{{stock.Exchange}}</p>
+      <p><strong>Country: </strong>{{stock.Country}}</p>
+      <p><strong>Sector: </strong>{{stock.Sector}}</p>
+      <p><strong>Industry: </strong>{{stock.Industry}}</p>
     </div>
     <div class="col">
-      <p><strong>MarketCapitalization: </strong>{{"113947500000" | currency:"USD"}}</p>
-      <p><strong>52WeekHigh: </strong>"142.43"</p>
-      <p><strong>52WeekLow: </strong>"106.73"</p>
+      <p><strong>MarketCapitalization: </strong>{{stock.MarketCapitalization | currency:"USD"}}</p>
+      <p><strong>52WeekHigh: </strong>{{stock.WeekHigh52}}</p>
+      <p><strong>52WeekLow: </strong>{{stock.WeekLow52}}</p>
     </div>
   </div>
 </div>
