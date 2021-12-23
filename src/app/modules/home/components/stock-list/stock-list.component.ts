@@ -30,12 +30,9 @@ export class StockListComponent implements OnInit {
     }
   }
 
-  sendSelectedStock(stockTicker: string) {
-    this.api.getStockTickerData(stockTicker).subscribe(stock => {
-      console.log('Emit stock', stock);
-      this.stockSelectedEvent.emit(stock);
-    })
-  }
+ sendSelectedStock(stockTicker: string) {
+   this.stockSelectedEvent.emit(this.api.getStockTickerData(stockTicker));
+}
 
   // getStockData() {
   //   console.log("Started");

@@ -7,11 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
+  stocksStorage: Stock[] = [];
   constructor(private http: HttpClient) { }
 
-  getStockTickerData(ticker: string): Observable<Stock> {
-    return this.http.get<Stock>(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=4UL18G30I6HH4G3C`);
+getStockTickerData(ticker: string): Stock | undefined {
+    for (let stock of this.stocksStorage) {
+      if (stock.Symbol === ticker){
+        return stock;
+      }
+    }
+    this.http.get<Stock>(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=4UL18G30I6HH4G3C`)
+      .subscribe(stock => {
+        this.stocksStorage.push(stock);
+        return stock;
+      });
+    return undefined;
   }
 
   // ! Works but FREE API doesn't allow number of calls
