@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container flex-grow-0 p-2">
   <div class="row">
     <div class="col">
       <div class="input-group mb-3">
@@ -11,7 +11,9 @@
           <input (click)="addStockTicker(stockInput.value)" class="btn btn-success" type="button" value="Add">
       </div>
       <ul class="list-group text-center">
-        <li *ngFor="let stock of stocks" class="list-group-item">{{stock}}</li>
+        <li *ngFor="let stock of stocks; let i = index;" class="list-group-item">
+          <a (click)="sendSelectedStock(stock)">{{stock}}</a>
+        </li>
       </ul>
     </div>
   </div>

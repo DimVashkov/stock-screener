@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-stock-list',
@@ -9,6 +9,7 @@ export class StockListComponent implements OnInit {
   @ViewChild('stockInput') stockInput: ElementRef | undefined;
   stocks: string[] = ['AAPL', 'TSLA', 'MSFT', 'NVDA', 'IBM'];
 
+  @Output() stockSelectedEvent = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
@@ -25,5 +26,10 @@ export class StockListComponent implements OnInit {
     if (this.stockInput != undefined) {
       this.stockInput.nativeElement.value = '';
     }
+  }
+
+  sendSelectedStock(stock: string) {
+    console.log('sending stock');
+    this.stockSelectedEvent.emit(stock);
   }
 }
