@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EarningsRoutingModule } from './earnings-routing.module';
+
 import { EarningsListComponent } from './earnings-list/earnings-list.component';
 import { EarningsImportantComponent } from './earnings-important/earnings-important.component';
 import { EarningsComponent } from './earnings.component';
@@ -13,7 +15,8 @@ import { EarningsComponent } from './earnings.component';
     EarningsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    EarningsRoutingModule
   ]
 })
 export class EarningsModule { }
