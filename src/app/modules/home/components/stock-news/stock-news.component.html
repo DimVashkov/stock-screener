@@ -1,1 +1,4 @@
-<p>stock-news works!</p>
+<div *ngIf="news" class="container"></div>
+<ul>
+  <li *ngFor="let article of news">{{ article.title }}</li>
+</ul>

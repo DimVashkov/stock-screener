@@ -10,8 +10,8 @@ import { ApiService} from '../../../../core/http/api.service';
 export class StockListComponent implements OnInit {
   @ViewChild('stockInput') stockInput: ElementRef | undefined;
   stockTickers: string[] = ['AAPL', 'TSLA', 'MSFT', 'NVDA', 'IBM'];
+  selectedStock: Stock | undefined;
 
-  @Output() stockSelectedEvent = new EventEmitter<Stock>();
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
@@ -30,8 +30,9 @@ export class StockListComponent implements OnInit {
     }
   }
 
- sendSelectedStock(stockTicker: string) {
-   this.stockSelectedEvent.emit(this.api.getStockTickerData(stockTicker));
+ async selectStock(stockTicker: string) {
+   this.selectedStock = await this.api.getStockTickerData(stockTicker);
+   //this.stockSelectedEvent.emit(this.api.getStockTickerData(stockTicker));
 }
 
   // getStockData() {

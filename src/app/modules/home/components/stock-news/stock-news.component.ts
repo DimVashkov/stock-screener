@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/core/http/api.service';
+import { NewsArticle } from 'src/app/shared/interfaces/news-article';
 
 @Component({
   selector: 'app-stock-news',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-news.component.scss']
 })
 export class StockNewsComponent implements OnInit {
+  news!: NewsArticle[];
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit(): void {
+    this.news = this.api.getNewsArray();
   }
 
 }
