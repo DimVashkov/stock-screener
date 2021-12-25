@@ -9,6 +9,7 @@ import { NewsArticle } from 'src/app/shared/interfaces/news-article';
 })
 export class ApiService {
   stocksStorage: Stock[] = [];
+  newsArticleStorage: NewsArticle[] = [];
   constructor(private http: HttpClient) { }
 
   async getStockTickerData(ticker: string): Promise<Stock> {
@@ -27,19 +28,22 @@ export class ApiService {
         return stock;
       });
   }
-  getNewsJSON(): Observable<any> {
-    return this.http.get<any>("https://api.polygon.io/v2/reference/news?limit=10&apiKey=RHD6yE3sVc36YIh4BCxW1JTUSIxESs5R");
+  getNewsJSON(): void {
+    this.http
+    .get<any>("https://api.polygon.io/v2/reference/news?limit=10&apiKey=RHD6yE3sVc36YIh4BCxW1JTUSIxESs5R")
+    .subscribe(data => {
+      for (let i = 0; i < data.count; i++) {
+        this.newsArticleStorage.push(<NewsArticle>data.results[i])
+      }
+    });
   }
 
   getNewsArray(): NewsArticle[] {
-    let newsArticles: NewsArticle[] = [];
-    this.getNewsJSON().subscribe(data => {
-      for (let i = 0; i < data.count; i++) {
-        newsArticles.push(<NewsArticle>data.results[i])
-      }
-    });
-    return newsArticles;
+    if (this.newsArticleStorage.length != 0) return this.newsArticleStorage;
+    this.getNewsJSON();
+    return this.newsArticleStorage;
   }
+
   // ! Works but FREE API doesn't allow number of calls
   // getStockTickerData(ticker: string): Observable<Stock> {
   //   return this.http.get<Stock>(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=4UL18G30I6HH4G3C`)
