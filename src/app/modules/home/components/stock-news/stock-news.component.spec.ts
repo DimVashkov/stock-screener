@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StockNewsComponent } from './stock-news.component';
@@ -8,7 +9,8 @@ describe('StockNewsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StockNewsComponent ]
+      declarations: [StockNewsComponent],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   });

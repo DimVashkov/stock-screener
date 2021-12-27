@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { Stock } from 'src/app/shared/interfaces/stock';
-import { ApiService} from '../../../../core/http/api.service';
+import { AlphaApiService} from '../../../../core/http/api.service';
 
 @Component({
   selector: 'app-stock-list',
@@ -13,7 +12,7 @@ export class StockListComponent implements OnInit {
   stockTickers: Stock[] = [];
   selectedStock: Stock | undefined;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: AlphaApiService) { }
 
   ngOnInit(): void {
   }
@@ -32,13 +31,7 @@ export class StockListComponent implements OnInit {
     }
   }
 
- async selectStock(stock: Stock) {
-   this.selectedStock = stock;
-   //this.stockSelectedEvent.emit(this.api.getStockTickerData(stockTicker));
-}
-
-  // getStockData() {
-  //   console.log("Started");
-  //   this.stocksFullData = this.api.getStockData(this.stockTickers);
-  // }
+  selectStock(stock: Stock) {
+    this.selectedStock = stock;
+  }
 }

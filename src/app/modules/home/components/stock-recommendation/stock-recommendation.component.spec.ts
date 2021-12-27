@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StockRecommendationComponent } from './stock-recommendation.component';
@@ -8,7 +9,8 @@ describe('StockRecommendationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StockRecommendationComponent ]
+      declarations: [StockRecommendationComponent],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   });

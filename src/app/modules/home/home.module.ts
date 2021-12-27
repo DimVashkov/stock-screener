@@ -7,6 +7,8 @@ import { StockDetailsComponent } from './components/stock-details/stock-details.
 import { StockNewsComponent } from './components/stock-news/stock-news.component';
 import { StockRecommendationComponent } from './components/stock-recommendation/stock-recommendation.component';
 import { HomeComponent } from './home.component';
+import { NewsApiService } from 'src/app/core/http/news-api.service';
+import { AlphaApiService } from 'src/app/core/http/api.service';
 
 
 
@@ -21,6 +23,10 @@ import { HomeComponent } from './home.component';
   imports: [
     CommonModule,
     HomeRoutingModule
+  ],
+  providers: [
+    NewsApiService,
+    AlphaApiService
   ]
 })
 export class HomeModule { }

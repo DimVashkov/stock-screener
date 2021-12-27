@@ -1,23 +1,19 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
-import { AlphaApiService } from './api.service';
+import { YahooApiService } from './yahoo-api.service';
 
-describe('AlphaApiService', () => {
-  let service: AlphaApiService;
+describe('YahooApiService', () => {
+  let service: YahooApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule]
     });
-    service = TestBed.inject(AlphaApiService);
+    service = TestBed.inject(YahooApiService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('should check for null object', () => {
-    expect(service.isEmptyObject({})).toBeTruthy();
-  })
 });

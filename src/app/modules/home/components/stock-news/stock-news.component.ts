@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/core/http/api.service';
+import { NewsApiService } from 'src/app/core/http/news-api.service';
 import { NewsArticle } from 'src/app/shared/interfaces/news-article';
 
 @Component({
@@ -10,10 +10,10 @@ import { NewsArticle } from 'src/app/shared/interfaces/news-article';
 export class StockNewsComponent implements OnInit {
   news!: NewsArticle[];
 
-  constructor(private api:ApiService) { }
+  constructor(private newsApi: NewsApiService) { }
 
   ngOnInit(): void {
-    this.news = this.api.getNewsArray();
+    this.news = this.newsApi.getNewsArray();
   }
 
 }

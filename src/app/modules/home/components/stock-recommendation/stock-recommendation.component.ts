@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/core/http/api.service';
+import { YahooApiService } from 'src/app/core/http/yahoo-api.service';
 
 @Component({
   selector: 'app-stock-recommendation',
@@ -9,10 +9,10 @@ import { ApiService } from 'src/app/core/http/api.service';
 export class StockRecommendationComponent implements OnInit {
   interestingStockTickers: string[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private yahooApi: YahooApiService) { }
 
   ngOnInit(): void {
-    this.interestingStockTickers = this.api.getInterestingStockTickersArray();
+    this.interestingStockTickers = this.yahooApi.getInterestingStockTickersArray();
   }
 
 }

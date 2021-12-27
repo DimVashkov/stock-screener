@@ -1,23 +1,23 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
-import { AlphaApiService } from './api.service';
+import { NewsApiService } from './news-api.service';
 
-describe('AlphaApiService', () => {
-  let service: AlphaApiService;
+describe('NewsApiService', () => {
+  let service: NewsApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule]
     });
-    service = TestBed.inject(AlphaApiService);
+    service = TestBed.inject(NewsApiService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should check for null object', () => {
-    expect(service.isEmptyObject({})).toBeTruthy();
+  it('should have 0 results at first', () => {
+    expect(service.newsArticleStorage.length).toBe(0);
   })
 });
