@@ -12,20 +12,22 @@ export class ApiService {
   newsArticleStorage: NewsArticle[] = [];
   constructor(private http: HttpClient) { }
 
-  async getStockTickerData(ticker: string): Promise<Stock> {
+  containsStockTicker(ticker: string): boolean {
     for (let stock of this.stocksStorage) {
       if (stock.Symbol === ticker) {
-        return stock;
+        return true;
       }
     }
-    return await this.getStockTickerJSON(ticker)
+    return false;
   }
 
-  async getStockTickerJSON(ticker: String): Promise<any> {
+  getStockTickerData(ticker: string): any {
+    if (this.containsStockTicker(ticker)) return;
+
     this.http.get<Stock>(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=4UL18G30I6HH4G3C`)
       .subscribe(stock => {
+        if (this.isEmptyObject(stock)) return;
         this.stocksStorage.push(stock);
-        return stock;
       });
   }
   getNewsJSON(): void {
@@ -38,10 +40,18 @@ export class ApiService {
     });
   }
 
+  getStocksStorage(): Stock[] {
+    return this.stocksStorage;
+  }
+
   getNewsArray(): NewsArticle[] {
     if (this.newsArticleStorage.length != 0) return this.newsArticleStorage;
     this.getNewsJSON();
     return this.newsArticleStorage;
+  }
+
+  isEmptyObject(obj: any) {
+    return (obj && (Object.keys(obj).length === 0));
   }
 
   // ! Works but FREE API doesn't allow number of calls

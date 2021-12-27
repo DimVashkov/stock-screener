@@ -12,8 +12,8 @@
           <input (click)="addStockTicker(stockInput.value)" class="btn btn-success" type="button" value="Add">
       </div>
       <ul class="list-group text-center">
-        <li *ngFor="let stock of stockTickers; let i = index;" class="list-group-item">
-          <a (click)="selectStock(stock)">{{stock}}</a>
+        <li *ngFor="let stock of stockTickers" class="list-group-item">
+          <a (click)="selectStock(stock)">{{stock.Symbol}}</a>
         </li>
       </ul>
     </div>
