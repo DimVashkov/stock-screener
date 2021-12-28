@@ -1,1 +1,4 @@
-<p>earnings-list works!</p>
+<h3>Earnings in the next 2 weeks</h3>
+<ul>
+  <li *ngFor="let entry of earnings">{{ entry.symbol }} - {{ entry.reportDate | date: 'fullDate' }} - {{ entry.estimate }}</li>
+</ul>

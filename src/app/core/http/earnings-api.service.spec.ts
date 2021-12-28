@@ -1,23 +1,19 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
-import { NewsApiService } from './news-api.service';
+import { EarningsApiService } from './earnings-api.service';
 
-describe('NewsApiService', () => {
-  let service: NewsApiService;
+describe('EarningsApiService', () => {
+  let service: EarningsApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule]
     });
-    service = TestBed.inject(NewsApiService);
+    service = TestBed.inject(EarningsApiService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('should have 0 results at first', () => {
-    expect(service.newsArticles.length).toBe(0);
-  })
 });

@@ -9,7 +9,7 @@ export class YahooApiService {
 
   constructor(private http: HttpClient) { }
 
-  getInterestingStockTickersJSON(): void {
+  load(): void {
     const headers = new HttpHeaders({ 'x-api-key': 'rpBh3omYZf4l3bBIJN55HzjEcZzV0Fl1XDDdas1e' });
     this.http
       .get<any>("https://yfapi.net/v1/finance/trending/us", { headers: headers })
@@ -20,9 +20,9 @@ export class YahooApiService {
       });
   }
 
-  getInterestingStockTickersArray(): string[] {
+  get(): string[] {
     if (this.interestingStocks.length != 0) return this.interestingStocks;
-    this.getInterestingStockTickersJSON();
+    this.load();
     return this.interestingStocks;
   }
 }
