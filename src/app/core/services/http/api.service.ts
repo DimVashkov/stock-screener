@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Stock } from '../../shared/interfaces/stock';
+import { Stock } from '../../../shared/interfaces/stock';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
