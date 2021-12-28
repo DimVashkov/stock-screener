@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AlphaApiService {
-  stocksStorage: Stock[] = [];
+  stocks: Stock[] = [];
 
   constructor(private http: HttpClient) { }
 
-  containsStockTicker(ticker: string): boolean {
-    for (let stock of this.stocksStorage) {
+  contains(ticker: string): boolean {
+    for (let stock of this.stocks) {
       if (stock.Symbol === ticker) {
         return true;
       }
@@ -19,19 +19,24 @@ export class AlphaApiService {
     return false;
   }
 
-  getStockTickerData(ticker: string): void {
-    if (this.containsStockTicker(ticker)) return;
+  load(ticker: string): void {
+    if (this.contains(ticker)) return;
 
     this.http
       .get<Stock>(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=4UL18G30I6HH4G3C`)
       .subscribe(stock => {
         if (this.isEmptyObject(stock)) return;
-        this.stocksStorage.push(stock);
+        this.stocks.push(stock);
       });
   }
 
-  getStocksStorage(): Stock[] {
-    return this.stocksStorage;
+  get(): Stock[] {
+    return this.stocks;
+  }
+
+  remove(stock: Stock): Stock[] {
+    this.stocks.splice(this.stocks.indexOf(stock), 1);
+    return this.get();
   }
 
   isEmptyObject(obj: any) {

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Stock } from 'src/app/shared/interfaces/stock';
 import { AlphaApiService} from '../../../../core/http/api.service';
 
@@ -8,27 +8,24 @@ import { AlphaApiService} from '../../../../core/http/api.service';
   styleUrls: ['./stock-list.component.scss']
 })
 export class StockListComponent implements OnInit {
-  @ViewChild('stockInput') stockInput: ElementRef | undefined;
-  stockTickers: Stock[] = [];
+  stocks: Stock[] = [];
   selectedStock: Stock | undefined;
+  stock!: string;
 
-  constructor(private api: AlphaApiService) { }
+  constructor(private stocks_api: AlphaApiService) { }
 
   ngOnInit(): void {
   }
-  addStockTicker(ticker: string) {
-    if (ticker === '') return;
+  add() {
+    if (this.stock === '') return;
 
-    ticker = ticker.toUpperCase();
-    this.api.getStockTickerData(ticker);
-    this.stockTickers = this.api.getStocksStorage();
-    this.clearStockInput();
+    this.stocks_api.load(this.stock.toUpperCase());
+    this.stocks = this.stocks_api.get();
+    this.stock = '';
   }
 
-  clearStockInput(): void {
-    if (this.stockInput != undefined) {
-      this.stockInput.nativeElement.value = '';
-    }
+  remove(stock: Stock) {
+    this.stocks = this.stocks_api.remove(stock);
   }
 
   selectStock(stock: Stock) {

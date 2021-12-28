@@ -12,7 +12,7 @@ export class StockRecommendationComponent implements OnInit {
   constructor(private yahooApi: YahooApiService) { }
 
   ngOnInit(): void {
-    this.interestingStockTickers = this.yahooApi.getInterestingStockTickersArray();
+    //this.interestingStockTickers = this.yahooApi.getInterestingStockTickersArray();
   }
 
 }

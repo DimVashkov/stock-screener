@@ -9,6 +9,7 @@ import { StockRecommendationComponent } from './components/stock-recommendation/
 import { HomeComponent } from './home.component';
 import { NewsApiService } from 'src/app/core/http/news-api.service';
 import { AlphaApiService } from 'src/app/core/http/api.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,8 @@ import { AlphaApiService } from 'src/app/core/http/api.service';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule
   ],
   providers: [
     NewsApiService,
