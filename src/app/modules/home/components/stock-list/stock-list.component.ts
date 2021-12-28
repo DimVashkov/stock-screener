@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from 'src/app/shared/interfaces/stock';
-import { AlphaApiService} from '../../../../core/http/api.service';
+import { AlphaApiService} from 'src/app/core/services/http/api.service';
 
 @Component({
   selector: 'app-stock-list',

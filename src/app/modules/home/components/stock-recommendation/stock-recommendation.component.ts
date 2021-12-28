@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { YahooApiService } from 'src/app/core/http/yahoo-api.service';
+import { YahooApiService } from 'src/app/core/services/http/yahoo-api.service';
 
 @Component({
   selector: 'app-stock-recommendation',
