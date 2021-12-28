@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Stock } from '../../../shared/interfaces/stock';
 import { HttpClient } from '@angular/common/http';
+import { AppConfigService } from '../app-config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AlphaApiService {
   stocks: Stock[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private config: AppConfigService) { }
 
   contains(ticker: string): boolean {
     for (let stock of this.stocks) {
@@ -23,7 +24,7 @@ export class AlphaApiService {
     if (this.contains(ticker)) return;
 
     this.http
-      .get<Stock>(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=4UL18G30I6HH4G3C`)
+      .get<Stock>(`${this.config.alphaApiUrl}function=OVERVIEW&symbol=${ticker}&apikey=${this.config.alphaApiKey}`)
       .subscribe(stock => {
         if (this.isEmptyObject(stock)) return;
         this.stocks.push(stock);

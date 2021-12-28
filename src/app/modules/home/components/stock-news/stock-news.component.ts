@@ -13,7 +13,7 @@ export class StockNewsComponent implements OnInit {
   constructor(private newsApi: NewsApiService) { }
 
   ngOnInit(): void {
-    //this.news = this.newsApi.getNewsArray();
+    this.news = this.newsApi.get();
   }
 
 }

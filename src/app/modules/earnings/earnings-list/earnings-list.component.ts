@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EarningsApiService } from 'src/app/core/http/earnings-api.service';
+import { EarningsApiService } from 'src/app/core/services/http/earnings-api.service';
 import { Earnings } from 'src/app/shared/interfaces/earnings';
 
 @Component({
@@ -11,9 +11,8 @@ export class EarningsListComponent implements OnInit {
   earnings: Earnings[] = [];
   constructor(private earnings_api:EarningsApiService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.earnings = await this.earnings_api.get();
-    console.log(this.earnings);
+   ngOnInit(): void {
+    this.earnings = this.earnings_api.get();
   }
 
 }

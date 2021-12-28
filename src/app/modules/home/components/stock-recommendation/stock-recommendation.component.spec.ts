@@ -1,5 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApplicationInitStatus, APP_INITIALIZER } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppConfigService } from 'src/app/core/services/app-config.service';
 
 import { StockRecommendationComponent } from './stock-recommendation.component';
 

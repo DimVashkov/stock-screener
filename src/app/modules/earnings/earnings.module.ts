@@ -5,7 +5,7 @@ import { EarningsRoutingModule } from './earnings-routing.module';
 import { EarningsListComponent } from './earnings-list/earnings-list.component';
 import { EarningsImportantComponent } from './earnings-important/earnings-important.component';
 import { EarningsComponent } from './earnings.component';
-import { EarningsApiService } from 'src/app/core/http/earnings-api.service';
+import { EarningsApiService } from 'src/app/core/services/http/earnings-api.service';
 
 
 

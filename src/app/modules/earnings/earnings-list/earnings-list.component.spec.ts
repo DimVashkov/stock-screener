@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EarningsListComponent } from './earnings-list.component';
@@ -8,7 +9,8 @@ describe('EarningsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EarningsListComponent ]
+      declarations: [ EarningsListComponent ],
+      imports: [ HttpClientModule]
     })
     .compileComponents();
   });

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Papa } from 'ngx-papaparse';
 import { Earnings } from 'src/app/shared/interfaces/earnings';
+import { AppConfigService } from '../app-config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ export class EarningsApiService {
   earnings: Earnings[] = [];
   currentDate: Date = new Date();
 
-  constructor(private http: HttpClient, private papa: Papa) {}
+  constructor(private http: HttpClient, private papa: Papa, private config: AppConfigService) {}
 
   load(): void {
-    const url = "https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=4UL18G30I6HH4G3C";
+    const url = `${this.config.alphaApiUrl}function=EARNINGS_CALENDAR&horizon=3month&apikey=${this.config.alphaApiKey}`;
     this.papa.parse( url, {
       download: true,
       delimiter: ',',
