@@ -1,5 +1,10 @@
+<ng-container *ngIf="auth.isAuthenticated$ | async">
 <div class="ui centered grid">
   <div class="ten wide column">
     <app-earnings-list classNames="striped" [data]="earnings" [headers]="headers"></app-earnings-list>
   </div>
 </div>
+</ng-container>
+<ng-container *ngIf="(auth.isAuthenticated$ | async) === false">
+  <app-login></app-login>
+</ng-container>

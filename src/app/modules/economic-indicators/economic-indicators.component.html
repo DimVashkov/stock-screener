@@ -1,1 +1,7 @@
-<p>economic-indicators works!</p>
+<ng-container *ngIf="auth.isAuthenticated$ | async">
+  <p>economic-indicators works!</p>
+</ng-container>
+
+<ng-container *ngIf="(auth.isAuthenticated$ | async) === false">
+  <app-login></app-login>
+</ng-container>

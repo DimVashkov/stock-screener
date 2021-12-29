@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { YahooApiService } from 'src/app/core/services/http/yahoo-api.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StockNewsArticleComponent } from './components/stock-news-article/stock-news-article.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 
@@ -29,6 +30,7 @@ import { StockNewsArticleComponent } from './components/stock-news-article/stock
     CommonModule,
     HomeRoutingModule,
     FormsModule,
+    CoreModule,
     SharedModule
   ],
   providers: [

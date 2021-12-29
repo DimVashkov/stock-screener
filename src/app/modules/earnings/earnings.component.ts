@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 import { EarningsApiService } from 'src/app/core/services/http/earnings-api.service';
 import { Earnings } from 'src/app/shared/interfaces/earnings';
 
@@ -18,10 +19,10 @@ export class EarningsComponent implements OnInit {
     { key: 'estimate', label: 'Estimate' },
   ];
 
-  constructor(private earnings_api: EarningsApiService) { }
+  constructor(public auth: AuthService, private earnings_api: EarningsApiService) { }
 
   ngOnInit(): void {
-    //this.earnings = this.earnings_api.get();
+    this.earnings = this.earnings_api.get();
   }
 
 }

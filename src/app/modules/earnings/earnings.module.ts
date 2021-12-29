@@ -7,6 +7,7 @@ import { EarningsImportantComponent } from './earnings-important/earnings-import
 import { EarningsComponent } from './earnings.component';
 import { EarningsApiService } from 'src/app/core/services/http/earnings-api.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 
@@ -19,7 +20,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
-    EarningsRoutingModule
+    EarningsRoutingModule,
+    CoreModule
   ],
   providers: [
     EarningsApiService

@@ -1,12 +1,17 @@
-<app-stock-recommendation></app-stock-recommendation>
-<div class="ui hidden divider"></div>
-<app-divider>
-  List of stocks
-</app-divider>
-<app-stock-list></app-stock-list>
-<div class="ui hidden divider"></div>
-<app-divider>
-  Market News
-</app-divider>
-<app-stock-news></app-stock-news>
+<ng-container *ngIf="auth.isAuthenticated$ | async;">
+  <app-stock-recommendation></app-stock-recommendation>
+  <div class="ui hidden divider"></div>
+  <app-divider>
+    List of stocks
+  </app-divider>
+  <app-stock-list></app-stock-list>
+  <div class="ui hidden divider"></div>
+  <app-divider>
+    Market News
+  </app-divider>
+  <app-stock-news></app-stock-news>
+</ng-container>
 
+<ng-container *ngIf="(auth.isAuthenticated$ | async) === false">
+  <app-login></app-login>
+</ng-container>

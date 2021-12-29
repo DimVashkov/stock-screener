@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { AppConfigService } from './core/services/app-config.service';
+import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,11 @@ import { AppConfigService } from './core/services/app-config.service';
     CoreModule,
     SharedModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule.forRoot({
+      domain: 'dev-u9zglyrg.us.auth0.com',
+      clientId: 'P1z4wKvwRl0bVALfueczJQ2JH4V2hCTl'
+    }),
   ],
   providers: [
     {

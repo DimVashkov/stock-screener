@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IpocalendarRoutingModule } from './ipo-routing.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 
@@ -8,7 +9,8 @@ import { IpocalendarRoutingModule } from './ipo-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    IpocalendarRoutingModule
+    IpocalendarRoutingModule,
+    CoreModule
   ]
 })
 export class IpocalendarModule { }
