@@ -11,11 +11,14 @@ export class AppConfigService {
   constructor(private http: HttpClient) { }
 
   loadAppConfig() {
-    return this.http
-      .get('/assets/config.json')
-      .subscribe(data => {
-        this.appConfig = data;
-      });
+    return new Promise((resolve, reject) => {
+      this.http
+        .get('/assets/config.json')
+        .subscribe(data => {
+          this.appConfig = data;
+          resolve(true);
+        });
+    })
   }
 
   get alphaApiKey(): string {
