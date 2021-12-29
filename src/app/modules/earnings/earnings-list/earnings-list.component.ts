@@ -12,7 +12,7 @@ export class EarningsListComponent implements OnInit {
   constructor(private earnings_api:EarningsApiService) { }
 
    ngOnInit(): void {
-    this.earnings = this.earnings_api.get();
+    //this.earnings = this.earnings_api.get();
   }
 
 }

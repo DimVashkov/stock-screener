@@ -11,6 +11,7 @@ import { NewsApiService } from 'src/app/core/services/http/news-api.service';
 import { AlphaApiService } from 'src/app/core/services/http/api.service';
 import { FormsModule } from '@angular/forms';
 import { YahooApiService } from 'src/app/core/services/http/yahoo-api.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -25,7 +26,8 @@ import { YahooApiService } from 'src/app/core/services/http/yahoo-api.service';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     NewsApiService,

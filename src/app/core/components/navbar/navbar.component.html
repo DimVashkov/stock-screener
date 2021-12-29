@@ -1,12 +1,13 @@
-<section id="navbar">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-    <div class="container-fluid">
-        <div class="navbar-nav  mx-auto">
-          <a class="nav-link" routerLink="">Home</a>
-          <a class="nav-link" routerLink="/earnings">Earnings</a>
-          <a class="nav-link" routerLink="/ipos">IPOs</a>
-          <a class="nav-link" routerLink="/economic-data">Economic Data</a>
-        </div>
-      </div>
-  </nav>
+<section>
+  <div class="ui container">
+    <div class="ui secondary pointing menu">
+      <a class="item" routerLinkActive="active" routerLink="">Home</a>
+      <a class="item" routerLinkActive="active" routerLink="/earnings">Earnings</a>
+      <a class="item" routerLinkActive="active" routerLink="/ipos">IPOs</a>
+      <a class="item" routerLinkActive="active" routerLink="/economic-data">Economic Data</a>
+    </div>
+    <div class="ui segment">
+      <ng-content></ng-content>
+    </div>
+  </div>
 </section>

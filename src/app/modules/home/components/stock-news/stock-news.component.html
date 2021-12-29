@@ -1,5 +1,15 @@
-<div *ngIf="news">
+<!-- <div *ngIf="news">
 <ul>
   <li *ngFor="let article of news">{{ article.title }}</li>
 </ul>
+</div> -->
+
+<div *ngIf="news" class="ui list">
+  <a *ngFor="let article of news" class="item">
+    <i class="right triangle icon"></i>
+    <div class="content">
+      <div class="header">{{ article.title }}</div>
+      <div class="description">{{ article.description }}</div>
+    </div>
+  </a>
 </div>

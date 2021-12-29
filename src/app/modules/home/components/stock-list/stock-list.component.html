@@ -1,25 +1,29 @@
-<div class="parent-container d-flex justify-content-center m-5">
-<div class="container flex-grow-0 w-25">
-  <div class="row">
-    <div class="col text-center">
-      <form (submit)="add()">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Tickers</span>
-          </div>
-          <input name="stock" [(ngModel)]="stock" type="text" class="form-control">
-          <input class="btn btn-success" type="submit" value="Add">
+<div class="ui two column grid">
+  <div class="six wide column">
+    <form (submit)="add()" class="ui form">
+      <div class="field">
+        <label>Stock Ticker</label>
+        <div class="ui icon input">
+          <input name="stock" [(ngModel)]="stock" type="text" placeholder="Add...">
+          <i class="search icon"></i>
         </div>
-      </form>
-      <ul class="list-group text-center">
-        <li *ngFor="let stock of stocks" class="list-group-item">
+      </div>
+    </form>
+    <div class="ui middle aligned divided list">
+      <div class="item" *ngFor="let stock of stocks">
+        <div class="right floated content">
+          <button class="ui button" (click)="remove(stock)">Remove</button>
+        </div>
+        <div class="center floated content">
           <a class="ticker" (click)="selectStock(stock)">{{stock.Symbol}}</a>
-          <button class="btn btn-warning btn-sm" (click)="remove(stock)">REMOVE</button>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="ten wide column">
+    <app-stock-details [stock]="selectedStock"></app-stock-details>
+  </div>
 </div>
-<app-stock-details [stock]="selectedStock"></app-stock-details>
-</div>
+
+
 
