@@ -1,7 +1,5 @@
-<div class="container">
-  <div class="row">
-    <div class="col-10 mx-auto my-5 text-center">
-      <app-earnings-list></app-earnings-list>
-    </div>
+<div class="ui centered grid">
+  <div class="ten wide column">
+    <app-earnings-list classNames="striped" [data]="earnings" [headers]="headers"></app-earnings-list>
   </div>
 </div>

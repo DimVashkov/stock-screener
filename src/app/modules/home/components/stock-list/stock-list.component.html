@@ -1,5 +1,5 @@
-<div class="ui two column grid">
-  <div class="six wide column">
+<div class="ui centered grid">
+  <div class="four wide column">
     <form (submit)="add()" class="ui form">
       <div class="field">
         <label>Stock Ticker</label>
@@ -9,21 +9,14 @@
         </div>
       </div>
     </form>
-    <div class="ui middle aligned divided list">
-      <div class="item" *ngFor="let stock of stocks">
-        <div class="right floated content">
-          <button class="ui button" (click)="remove(stock)">Remove</button>
-        </div>
-        <div class="center floated content">
-          <a class="ticker" (click)="selectStock(stock)">{{stock.Symbol}}</a>
-        </div>
-      </div>
+    <div class="ui blue labels">
+      <div class="ui hidden divider"></div>
+      <a class="ui label" *ngFor="let stock of stocks" (click)="selectStock(stock)">{{stock.Symbol}}
+        <i (click)="remove(stock)" class="icon close"></i>
+      </a>
     </div>
   </div>
   <div class="ten wide column">
     <app-stock-details [stock]="selectedStock"></app-stock-details>
   </div>
 </div>
-
-
-

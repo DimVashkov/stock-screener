@@ -15,6 +15,7 @@ export class StockListComponent implements OnInit {
   constructor(private stocks_api: AlphaApiService) { }
 
   ngOnInit(): void {
+    this.stocks = this.stocks_api.get();
   }
   add() {
     if (this.stock === '') return;

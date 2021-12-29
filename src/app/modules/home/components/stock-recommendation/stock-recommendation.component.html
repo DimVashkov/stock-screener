@@ -1,7 +1,5 @@
-<div class="ui big horizontal divided list">
-  <div *ngFor="let ticker of interestingStockTickers; let i = index;" class="item">
-    <div class="content">
-      <div class="header">{{ ticker }}</div>
-    </div>
+<div class="ui tag labels">
+  <div class="ui label" *ngFor="let ticker of interestingStockTickers;">
+    {{ ticker }}
   </div>
 </div>

@@ -1,4 +1,22 @@
-<h3>Earnings in the next 2 weeks</h3>
-<ul>
+<app-divider>
+  Earnings in the next 2 Weeks
+</app-divider>
+<!-- <ul>
   <li *ngFor="let entry of earnings">{{ entry.symbol }} - {{ entry.reportDate | date: 'fullDate' }} - {{ entry.estimate }}</li>
-</ul>
+</ul> -->
+<table [ngClass]="classNames" class="ui table">
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">
+        {{header.label}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of data">
+      <td *ngFor="let header of headers">
+        {{ record[header.key] }}
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EarningsApiService } from 'src/app/core/services/http/earnings-api.service';
 import { Earnings } from 'src/app/shared/interfaces/earnings';
 
@@ -8,11 +8,14 @@ import { Earnings } from 'src/app/shared/interfaces/earnings';
   styleUrls: ['./earnings-list.component.scss']
 })
 export class EarningsListComponent implements OnInit {
-  earnings: Earnings[] = [];
-  constructor(private earnings_api:EarningsApiService) { }
+  @Input() classNames:string = '';
+  @Input() data: any = [];
+  @Input() headers: any = [];
+
+  constructor() { }
 
    ngOnInit(): void {
-    //this.earnings = this.earnings_api.get();
+
   }
 
 }
