@@ -1,4 +1,4 @@
-<div class="ui horizontal divider">
+<!-- <div class="ui horizontal divider">
   {{ article.publisher.name }}
 </div>
 <div class="ui divided items">
@@ -23,4 +23,25 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+    <div class="image">
+      <img [src]="article.image_url">
+    </div>
+    <div class="content">
+      <a class="header">{{ article.title }}</a>
+      <div class="meta">
+        <span class="cinema">{{ article.author }}</span>
+      </div>
+      <div class="description">
+        <p>{{ article.description }}</p>
+      </div>
+      <div class="extra">
+        <div *ngFor="let keyword of article.keywords" class="ui label">{{ keyword }}</div>
+        <a href="{{article.article_url}}" target="_blank" class="ui right floated primary button">
+          Read More
+          <i class="right chevron icon"></i>
+        </a>
+      </div>
+    </div>
