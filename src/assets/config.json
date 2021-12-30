@@ -1,8 +1,0 @@
-{
-  "alphaApiKey": "4UL18G30I6HH4G3C",
-  "yahooApiKey": "rpBh3omYZf4l3bBIJN55HzjEcZzV0Fl1XDDdas1e",
-  "polygonApiKey": "RHD6yE3sVc36YIh4BCxW1JTUSIxESs5R",
-  "alphaApiUrl": "https://www.alphavantage.co/query?",
-  "yahooApiUrl": "https://yfapi.net",
-  "polygonApiUrl": "https://api.polygon.io/v2/reference"
-}
