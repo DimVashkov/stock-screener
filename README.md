@@ -28,8 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ##
 
-Using alphavantage.co for market data. Key = 4UL18G30I6HH4G3C
-
 Fundamental data using:
 https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
 
@@ -39,3 +37,8 @@ https://www.alphavantage.co/query?function=IPO_CALENDAR&apikey=demo
 Earnings Calendar using:
 https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=demo
 
+Ticker Recommendation using:
+Yahoo Finance Api
+
+Market News using:
+https://api.polygon.io/v2/reference
